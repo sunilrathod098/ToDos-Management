@@ -78,10 +78,6 @@ Profile Management: Users can view, update, and delete their profiles.
 - Passwords should be hashed before being stored in the database to ensure security and protect user data.
 - The code verifies JSON Web Tokens (JWT), differentiating between expired and invalid tokens to maintain application security.
 
-## Conclusion
-- Overall, this Todo application is designed with user experience, security, and functionality in mind. 
-- The integration of JWT for authentication ensures that user data is protected, while the responsive design and dynamic content management enhance usability. 
-- The modular structure of the codebase facilitates easy maintenance and future enhancements, making it a solid foundation for a practical web application.
 
 # Project Structure
 
@@ -115,6 +111,13 @@ Profile Management: Users can view, update, and delete their profiles.
   - `package.json`           # Project metadata and dependencies
   - `.gitignore`             # Specifies files and folders to be ignored by Git
   - `README.md`              # Documentation for the project, including setup and usage instructions
+ 
+
+## Conclusion
+- Overall, this Todo application is designed with user experience, security, and functionality in mind. 
+- The integration of JWT for authentication ensures that user data is protected, while the responsive design and dynamic content management enhance usability. 
+- The modular structure of the codebase facilitates easy maintenance and future enhancements, making it a solid foundation for a practical web application.
+
 
 
 
