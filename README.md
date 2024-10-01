@@ -42,7 +42,7 @@ Make sure you have the following installed on your machine:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sunilrathod098/todo-application.git
+   git clone https://github.com/sunilrathod098/ToDo-s-Project.git
    cd todo-application
 
 2. Install dependencies:
