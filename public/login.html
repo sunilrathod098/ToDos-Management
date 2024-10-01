@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Todo App</title>
+  <link rel="icon" href="login.ico" type="image/x-icon">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('loginbackimg.jpeg') no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: rgba(192, 186, 186, 0.9);
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      /* Change width to be responsive */
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+
+    button {
+      width: 100%;
+      background-color: #007bff;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      margin-top: 20px;
+      cursor: pointer;
+      /* Add cursor pointer */
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    p {
+      margin-top: 20px;
+    }
+
+    a {
+      color: #370fd4;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    #loader {
+      display: none;
+      margin-top: 10px;
+    }
+
+    #login-error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Login Todo App</h1>
+    <h2>Login to Your Account</h2>
+    <form id="login-form">
+      <input type="email" id="login-email" placeholder="Enter your email" required>
+      <input type="password" id="login-password" placeholder="Enter your password" required>
+      <div id="login-error-message"></div> <!-- Correct error message -->
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="register.html">Register here</a></p>
+    <div id="loader" style="display: none;">Loading...</div> <!-- Loader -->
+  </div>
+
+  <script src="../public/script.js"></script>
+
+  <script>
+    // Prevent default form submission and trigger login
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      login(); // Call the login function
+    });
+  </script>
+</body>
+
+</html>
