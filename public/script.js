@@ -129,7 +129,6 @@ async function addTodo() {
     }
   } catch (error) {
     console.error("Error adding todo:", error);
-    alert("An error occurred: " + error.message);
   } finally {
     hideLoader(); // Hide loading indicator
   }
@@ -162,8 +161,7 @@ async function loadTodos() {
         todoItem.innerHTML = `
                     <div>
                         <strong>Title:</strong> ${todo.title} <br>
-                        <strong>Description:</strong> ${todo.description} <br>
-                        <strong>Completed:</strong> <input type="checkbox" ${todo.completed ? "checked" : ""} onchange="toggleCompletion('${todo._id}', this.checked)">
+                        <strong>Description:</strong> ${todo.description}
                     </div>
                     <div class="todo-actions">
                         <button onclick="updateTodo('${todo._id}')">Update</button>

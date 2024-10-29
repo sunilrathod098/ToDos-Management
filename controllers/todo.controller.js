@@ -12,7 +12,7 @@ export const createTodo = [
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { title, description, checkbox } = req.body;
+    const { title, description } = req.body;
     const userId = req.user._id;
 
     console.log("User ID:", userId);
@@ -22,7 +22,7 @@ export const createTodo = [
       const newTodo = new Todo({
         title,
         description,
-        checkbox: checkbox || false,
+        // checkbox: checkbox || false,
         user: userId,
       });
 

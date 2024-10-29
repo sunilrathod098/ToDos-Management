@@ -10,10 +10,6 @@ const TodoSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  checkbox: {
-    type: Boolean,
-    default: false,
-  },
   user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User", // Reference to the User model
