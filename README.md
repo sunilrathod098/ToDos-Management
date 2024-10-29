@@ -82,7 +82,7 @@ Make sure you have the following installed on your machine:
     - `todos.html`           # HTML page for displaying username and managing todos
     - `styles.css`           # CSS for styling the application
 
-    - **images/**            # Folder containing images used in the HTML files
+  - **images/**            # Folder containing images used in the HTML files
 
   - **middleware/**
     - `auth.js`              # Middleware for JWT authentication and securing routes
