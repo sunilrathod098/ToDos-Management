@@ -1,4 +1,4 @@
-# Todo Application
+# Todo's Management
 
 A simple Todo application that allows users to register, log in, and manage their tasks. The application leverages JWT for authentication and provides a responsive design for an enhanced user experience.
 
@@ -43,7 +43,7 @@ Make sure you have the following installed on your machine:
 1. Clone the repository:
    ```bash
    git clone https://github.com/sunilrathod098/ToDo-s-Project.git
-   cd todo-application
+   cd todo-management
 
 2. Install dependencies:
   ```npm install```
@@ -67,21 +67,26 @@ Make sure you have the following installed on your machine:
     - `user.controller.js`   # Manages user profile operations
     - `todo.controller.js`   # Manages main task operations (CRUD)
     - `sub_todo.controller.js` # Manages operations for subtasks (CRUD)
+
   - **models/**
     - `user.models.js`       # Defines the User schema for MongoDB
     - `todo.models.js`       # Defines the Todo schema for main tasks
     - `sub_todo.models.js`   # Defines the SubTodo schema for managing subtasks
+
   - **routes/**
     - `user.routes.js`       # Contains routes related to user operations
     - `todo.routes.js`       # Contains routes related to main task operations
     - `sub_todo.routes.js`   # Contains routes for handling subtasks
+
   - **public/**
     - `script.js`            # JavaScript for client-side functionality and AJAX calls
     - `register.html`        # HTML page for user registration
     - `login.html`           # HTML page for user login
     - `todos.html`           # HTML page for displaying and managing todos
     - `styles.css`           # CSS for styling the application
+
     - **images/**            # Folder containing images used in the HTML files
+
   - **middleware/**
     - `auth.js`              # Middleware for JWT authentication and securing routes
     - `jwt_secret_key.js`    # Contains the secret key for JWT signing
