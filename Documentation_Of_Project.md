@@ -28,7 +28,7 @@ The project is organized into several main directories and files, each serving a
 *script.js: *JavaScript code for client-side interactions and AJAX calls.
 *register.html:* The registration page for new users.
 *login.html:* The login page for existing users.
-*todos.html:* The main interface for displaying and managing tasks.
+*todos.html:* The main interface for displaying username and managing tasks.
 *Images:* Contains associated images used within the HTML files.
 
 ### 5. Middleware
@@ -82,7 +82,7 @@ Profile Management: Users can view, update, and delete their profiles.
 # Project Structure
 
 
-- **Todo-Application/**
+- **Todo-Management/**
   - **controllers/**
     - `auth.controller.js`  # Handles user authentication (login, registration)
     - `user.controller.js`   # Manages user profile operations
@@ -100,7 +100,7 @@ Profile Management: Users can view, update, and delete their profiles.
     - `script.js`            # JavaScript for client-side functionality and AJAX calls
     - `register.html`        # HTML page for user registration
     - `login.html`           # HTML page for user login
-    - `todos.html`           # HTML page for displaying and managing todos
+    - `todos.html`           # HTML page for displaying username and managing todos
     - `styles.css`           # CSS for styling the application
 
     - **images/**            # Folder containing images used in the HTML files
@@ -108,12 +108,13 @@ Profile Management: Users can view, update, and delete their profiles.
   - **middleware/**
     - `auth.js`              # Middleware for JWT authentication and securing routes
     - `jwt_secret_key.js`    # Contains the secret key for JWT signing
+
   - `server.js`              # Main server file for setting up Express, middleware, and routes
   - `.env`                   # Environment variables (database connection, JWT secret)
   - `package.json`           # Project metadata and dependencies
   - `.gitignore`             # Specifies files and folders to be ignored by Git
   - `README.md`              # Documentation for the project, including setup and usage instructions
- 
+  - `Documentation.md`       # Here a documentaion of overview of project and setup and how to use what are we want all instructons in this doc.
 
 ## Conclusion
 - Overall, this Todo application is designed with user experience, security, and functionality in mind. 

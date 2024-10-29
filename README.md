@@ -1,6 +1,6 @@
 # Todo's Management
 
-A simple Todo application that allows users to register, log in, and manage their tasks. The application leverages JWT for authentication and provides a responsive design for an enhanced user experience.
+A simple Todo management that allows users to register, log in, and manage their tasks. The management leverages JWT for authentication and provides a responsive design for an enhanced user experience.
 
 ## Table of Contents
 
@@ -42,8 +42,8 @@ Make sure you have the following installed on your machine:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/sunilrathod098/ToDo-s-Project.git
-   cd todo-management
+   git clone https://github.com/sunilrathod098/ToDos-Management.git
+   cd Todos-Management
 
 2. Install dependencies:
   ```npm install```
@@ -51,7 +51,7 @@ Make sure you have the following installed on your machine:
 3. Start the server:
   ```npm start```
 
-4. Access the application in your browser at ```http://localhost:5000```.
+4. Access the management in your browser at ```http://localhost:5000```.
 
 ## Usage
 1. *Register*: Go to the registration page, fill out the form, and create an account.
@@ -61,28 +61,25 @@ Make sure you have the following installed on your machine:
 
 ## Project Structure
 
-- **Todo-Application/**
+- **Todo-Management/**
   - **controllers/**
     - `auth.controller.js`  # Handles user authentication (login, registration)
     - `user.controller.js`   # Manages user profile operations
     - `todo.controller.js`   # Manages main task operations (CRUD)
-    - `sub_todo.controller.js` # Manages operations for subtasks (CRUD)
 
   - **models/**
     - `user.models.js`       # Defines the User schema for MongoDB
     - `todo.models.js`       # Defines the Todo schema for main tasks
-    - `sub_todo.models.js`   # Defines the SubTodo schema for managing subtasks
 
   - **routes/**
     - `user.routes.js`       # Contains routes related to user operations
     - `todo.routes.js`       # Contains routes related to main task operations
-    - `sub_todo.routes.js`   # Contains routes for handling subtasks
 
   - **public/**
     - `script.js`            # JavaScript for client-side functionality and AJAX calls
     - `register.html`        # HTML page for user registration
     - `login.html`           # HTML page for user login
-    - `todos.html`           # HTML page for displaying and managing todos
+    - `todos.html`           # HTML page for displaying username and managing todos
     - `styles.css`           # CSS for styling the application
 
     - **images/**            # Folder containing images used in the HTML files
@@ -90,8 +87,9 @@ Make sure you have the following installed on your machine:
   - **middleware/**
     - `auth.js`              # Middleware for JWT authentication and securing routes
     - `jwt_secret_key.js`    # Contains the secret key for JWT signing
+
   - `server.js`              # Main server file for setting up Express, middleware, and routes
-  - `.env`                   # Environment variables (database connection, JWT secret)
+  - `.env`                   # Environment variables (database connection, JWT secret, and PORT)
   - `package.json`           # Project metadata and dependencies
   - `.gitignore`             # Specifies files and folders to be ignored by Git
   - `README.md`              # Documentation for the project, including setup and usage instructions

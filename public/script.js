@@ -91,6 +91,7 @@ async function login() {
     if (data) {
       alert("Login successful!");
       localStorage.setItem("token", data.token); // Store token
+      localStorage.setItem("Username", data.user.username); // store the username
       window.location.href = "todos.html"; // Redirect to todos page
     } else {
       errormessage.textContent = data.message || "Invalid credentials.";
@@ -138,6 +139,15 @@ async function addTodo() {
 async function loadTodos() {
   const todoList = document.getElementById("todo-list");
   todoList.innerHTML = ""; // Clear the current todo list
+
+  //get username from localstorage and display here
+  const usernameDisplay = document.getElementById("username-display");
+  const username = localStorage.getItem("Username");
+  if (username) {
+    usernameDisplay.textContent = `Welcome, ${username}`;
+  } else {
+    usernameDisplay.textContent = `Welcome, Guest`;
+  }
 
   try {
     const todos = await sendRequest(API_URL_TODOS, "GET");
@@ -217,10 +227,8 @@ async function deleteTodo(id) {
   }
 }
 
-// Load todos when the todos.html page loads
-if (document.getElementById("todo-list")) {
-  loadTodos(); // Fetch todos initially
-}
+//call loadtodos on page load
+document.addEventListener("DOMContentLoaded", loadTodos);
 
 // Loader functions
 function showLoader() {
