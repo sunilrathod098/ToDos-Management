@@ -1,4 +1,5 @@
 import { check, validationResult } from "express-validator";
+// import bcrypt from "bcrypt";
 import Todo from "../models/todo.models.js"; // Adjust the path as necessary
 
 // Create a new todo

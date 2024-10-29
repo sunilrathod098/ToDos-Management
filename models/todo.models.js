@@ -1,3 +1,4 @@
+// todo.model.js
 import mongoose from "mongoose";
 
 const TodoSchema = new mongoose.Schema({
@@ -12,6 +13,11 @@ const TodoSchema = new mongoose.Schema({
   checkbox: {
     type: Boolean,
     default: false,
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User", // Reference to the User model
+    required: true,
   },
 }, { timestamps: true });
 

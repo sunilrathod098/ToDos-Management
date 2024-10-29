@@ -1,7 +1,7 @@
 import express from "express";
 import {
   loginUser,
-  registerUser
+  registerUser,
 } from "../controllers/auth.controller.js";
 import {
   deleteUserById,
@@ -9,6 +9,7 @@ import {
   getUserById,
   updateUserById,
 } from "../controllers/user.controller.js";
+import authMiddleware from "../Middleware/auth.js"; // Import your authentication middleware here
 
 const router = express.Router();
 
@@ -16,7 +17,8 @@ const router = express.Router();
 router.post("/register", registerUser); // Registration route
 router.post("/login", loginUser); // Login route
 
-// User management routes
+// User management routes (consider protecting these)
+router.use(authMiddleware); // Protect all user management routes
 router.get("/", getAllUsers); // Get all users
 router.get("/:id", getUserById); // Get user by ID
 router.put("/:id", updateUserById); // Update user by ID

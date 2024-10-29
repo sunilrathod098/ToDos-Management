@@ -4,7 +4,6 @@ import express from "express";
 import mongoose from "mongoose";
 import path from "path";
 import { fileURLToPath } from "url";
-import subTodoRouter from "./routes/sub_todo.routes.js";
 import todoRouter from "./routes/todo.routes.js";
 import userRouter from "./routes/user.routes.js";
 
@@ -21,8 +20,8 @@ const __dirname = path.dirname(__filename);
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
   })
   .then(() => console.log("Database connected successfully"))
   .catch((err) => console.error("Database connection error:", err));
@@ -44,7 +43,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // Connect routes
 app.use("/api/users", userRouter);
 app.use("/api/todos", todoRouter);
-app.use("/api/subtodos", subTodoRouter);
 
 // Serve frontend pages
 app.get("/", (req, res) => {

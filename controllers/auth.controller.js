@@ -1,13 +1,14 @@
+import bcrypt from "bcryptjs";
 import { check, validationResult } from "express-validator";
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import User from "../models/user.models.js";
 
-// // Generate Access Token
-// const generateAccessToken = (userId) => {
-//   return jwt.sign({ user: { id: userId } }, process.env.JWT_SECRET, {
-//     expiresIn: "30d", // Access token expiration time
-//   });
-// };
+// Generate Access Token
+const generateAccessToken = (user) => {
+  return jwt.sign({ user: { _id: user._id, email: user.email } }, process.env.JWT_SECRET, {
+    expiresIn: "30d", // Access token expiration time
+  });
+};
 
 // Register a new user
 export const registerUser = [
@@ -26,7 +27,6 @@ export const registerUser = [
     const { username, email, password } = req.body;
 
     try {
-      // Normalize email (trim and lowercase)
       const normalizedEmail = email.trim().toLowerCase();
 
       // Check if the user already exists
@@ -35,11 +35,15 @@ export const registerUser = [
         return res.status(400).json({ message: "User already exists" });
       }
 
+      // Hash the password
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(password, salt);
+
       // Create new user
       user = new User({
         username,
         email: normalizedEmail, // Save normalized email
-        password,
+        password: hashedPassword, // Save hashed password
       });
       await user.save();
 
@@ -75,14 +79,19 @@ export const loginUser = [
       }
 
       // Check password
-      if (user.password !== password) { // Update this with proper password hashing in production
-        return res.status(400).json({ message: "Invalid credentials" });
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(401).json({ message: "Invalid credentials" });
       }
+
+      // Generate access token
+      const token = generateAccessToken(user);
 
       // Login successful
       res.status(200).json({
         message: "Login successful",
-        user: { username: user.username, email: user.email }, // Return user info if needed
+        token, // Include the token in the response
+        user: { _id: user._id, username: user.username, email: user.email }, // Return user info if needed
       });
     } catch (error) {
       console.error("Error during login:", error.message);
@@ -90,7 +99,6 @@ export const loginUser = [
     }
   },
 ];
-
 
 
 // Get user by ID

@@ -13,6 +13,9 @@ export const createTodo = [
     }
 
     const { title, description, checkbox } = req.body;
+    const userId = req.user._id;
+
+    console.log("User ID:", userId);
 
     try {
       // Create new todo item
@@ -20,6 +23,7 @@ export const createTodo = [
         title,
         description,
         checkbox: checkbox || false,
+        user: userId,
       });
 
       await newTodo.save();
@@ -35,8 +39,8 @@ export const createTodo = [
 // Get all Todos
 export const getTodos = async (req, res) => {
   try {
-    // const userId = req.user._id;
-    const todos = await Todo.find(); // Filtering by default user
+    const userId = req.user._id;
+    const todos = await Todo.find({ user: userId }); // Filtering by default user
     res.status(200).json(todos);
   } catch (error) {
     res.status(500).json({ message: "Error retrieving todos", error: error.message });
@@ -56,14 +60,13 @@ export const updateTodo = [
 
     try {
       const { id } = req.params; // Get the ID from the request parameters
-      // console.log("Updating todo with ID:", id); // Log the ID
-      // console.log("Request body:", req.body); // Log the body content
+      const userId = req.user._id;
 
       // Check if the todo exists before attempting to update
-      const existingTodo = await Todo.findById(id);
+      const existingTodo = await Todo.findOne({ _id: id, user: userId });
       if (!existingTodo) {
         console.error(`Todo not found for ID: ${id}`); // Log error
-        return res.status(404).json({ message: "Todo not found" });
+        return res.status(404).json({ message: "Todo not found and not permission to edit any todos." });
       }
 
       // Update the todo
@@ -88,15 +91,16 @@ export const deleteTodo = async (req, res) => {
   // console.log("Deleting todo with ID:", id); // Log the ID
 
   try {
+    const userId = req.user._id;
+
     // Check if the todo exists before attempting to delete
-    const existingTodo = await Todo.findById(id);
+    const existingTodo = await Todo.findOne({ _id: id, user: userId });
     if (!existingTodo) {
       console.error(`Todo not found for ID: ${id}`); // Log error
       return res.status(404).json({ message: "Todo not found" });
     }
-
-    const deletedTodo = await Todo.findByIdAndDelete(id); // Use findByIdAndDelete
-
+    
+    await Todo.findByIdAndDelete(id); // Use findByIdAndDelete
     res.status(200).json({ message: "Todo deleted successfully." });
   } catch (error) {
     console.error("Error deleting todo:", error); // Log error for debugging
