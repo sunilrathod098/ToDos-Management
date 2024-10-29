@@ -7,7 +7,7 @@
   <title>Todos - Todo App</title>
   <link rel="icon" href="todos.ico" type="image/x-icon">
   
-<style>
+<!-- <style>
   body {
     font-family: Arial, sans-serif;
     background-color: #101010;
@@ -182,8 +182,158 @@
     /* Light text */
     margin-top: 20px;
   }
-</style>
+</style> -->
 
+
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: url('todosbackimgs.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #000000;
+  }
+
+  .container {
+    background-color: rgba(199, 195, 195, 0.9);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    max-width: 1000px;
+    width: 200%;
+    text-align: center;
+    overflow-y: auto;
+    max-height: 85vh;
+    position: relative;
+    /* Added for username positioning */
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #000000;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #1f1e1e;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #ffffff;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+  }
+
+  input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+
+  button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+  #todo-list {
+    size: 5cap;
+    color: #000000;
+    margin-top: 20px;
+    text-align: left;
+    overflow-y: auto;
+    max-height: 300px;
+    padding: 0 10px;
+  }
+
+  .todo-item {
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+  }
+
+  .todo-item:hover {
+    background-color: #f1f1f1;
+  }
+
+  .todo-actions {
+    display: flex;
+    gap: 10px;
+  }
+
+  .todo-actions button {
+    background-color: #007bff;
+    padding: 8px 15px;
+  }
+
+  .todo-actions button:hover {
+    background-color: #0056b3;
+  }
+
+  .username-display {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 1.1rem;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 20px;
+    color: #fcfeff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    background-color: #117b1d;
+    transition: background-color 0.3s, text-decoration 0.2s;
+  }
+
+  a:hover {
+    background-color: #dddfe0;
+    text-decoration: underline;
+  }
+
+  #loader {
+    display: none;
+    font-size: 1.2rem;
+    color: #000000;
+    margin-top: 20px;
+  }
+</style>
 
 </head>
 
